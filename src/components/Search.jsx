@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { CryptoContext } from "../context/CryptoContext";
+import { Button, Input } from "@chakra-ui/react";
 
 const SearchInput = ({ handleSearch }) => {
   const [search, setSearch] = useState("");
@@ -29,26 +30,32 @@ const SearchInput = ({ handleSearch }) => {
 
   return (
     <div>
-      <form className="flex items-center" onSubmit={handleSubmit}>
-        <input
-          onChange={handleChange}
-          value={search}
-          className="border rounded-4 text-black py-2 px-4"
-          type="text"
-          placeholder="Search"
-        />
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-4"
-        >
-          Search
-        </button>
+      <form className="flex items-center gap-4" onSubmit={handleSubmit}>
+        <div>
+          <Input
+            onChange={handleChange}
+            value={search}
+            className="border rounded-4 py-2 px-4"
+            type="text"
+            placeholder="Search"
+          />
+        </div>
+        <div>
+          <Button
+            colorScheme="blue"
+            variant="solid"
+            type="submit"
+            paddingLeft={5}
+          >
+            Search
+          </Button>
+        </div>
       </form>
 
       {search.length > 0 ? (
         <div
           className="wrapper absolute flex items-center justify-center top-auto w-96 h-96 rounded
-        overflow-x-hidden py-2 bg-gray-200 bg-opacity-60 
+        overflow-x-hidden py-2 bg-gray-200 bg-opacity-60 z-10
         backdrop-blur-md scrollbar-thin scrollbar-thumb-gray-100 scrollbar-track-gray-200"
         >
           <ul className="w-full h-96">

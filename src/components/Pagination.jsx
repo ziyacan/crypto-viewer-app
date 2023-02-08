@@ -1,43 +1,53 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import { CryptoContext } from "../context/CryptoContext";
+import { Button, Select } from "@chakra-ui/react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 const PerPage = () => {
   const { setPerPage } = useContext(CryptoContext);
 
   return (
     <div className="flex gap-4">
-      <button
+      <Button
+        colorScheme="blue"
+        variant="solid"
         onClick={() => {
           setPerPage(10);
         }}
       >
         10
-      </button>
-      <button
+      </Button>
+      <Button
+        colorScheme="blue"
+        variant="solid"
         onClick={() => {
           setPerPage(25);
         }}
       >
         25
-      </button>
-      <button
+      </Button>
+      <Button
+        colorScheme="blue"
+        variant="solid"
         onClick={() => {
           setPerPage(50);
         }}
       >
         50
-      </button>
-      <button
+      </Button>
+      <Button
+        colorScheme="blue"
+        variant="solid"
         onClick={() => {
           setPerPage(100);
         }}
       >
         100
-      </button>
+      </Button>
 
-      <select
-        className="border rounded-4 text-black"
+      <Select
+        className="border rounded-4"
         onChange={(e) => {
           setPerPage(e.target.value);
         }}
@@ -46,7 +56,7 @@ const PerPage = () => {
         <option value="25">25</option>
         <option value="50">50</option>
         <option value="100">100</option>
-      </select>
+      </Select>
     </div>
   );
 };
@@ -89,64 +99,55 @@ const Pagination = () => {
 
   if (cryptoData && cryptoData.length >= perPage) {
     return (
-      <div className="flex gap-4">
+      <div className="justify-center w-full grid md:flex gap-4 md:justify-between">
         <PerPage />
-        <button onClick={handlePrev}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+        <div className="gap-2 flex">
+          <Button colorScheme="blue" variant="solid" onClick={handlePrev}>
+            <ChevronLeftIcon boxSize={8} />
+          </Button>
+          {page + 1 === totalNumber || page === totalNumber ? (
+            <Button colorScheme="blue" variant="solid" onClick={multiStepPrev}>
+              ...
+            </Button>
+          ) : null}
+          {page - 1 !== 0 ? (
+            <Button colorScheme="blue" variant="solid" onClick={handlePrev}>
+              {page - 1}
+            </Button>
+          ) : null}
+          <Button
+            colorScheme="blue"
+            variant="solid"
+            disabled
+            className="text-cyan"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </button>
-        {page + 1 === totalNumber || page === totalNumber ? (
-          <button onClick={multiStepPrev}>...</button>
-        ) : null}
-        {page - 1 !== 0 ? (
-          <button onClick={handlePrev}>{page - 1}</button>
-        ) : null}
-        <button disabled className="text-cyan">
-          {page}
-        </button>
-        {page + 1 !== totalNumber && page !== totalNumber ? (
-          <button onClick={handleNext}>{page + 1}</button>
-        ) : null}
-        {page + 1 !== totalNumber && page !== totalNumber ? (
-          <button onClick={multiStepNext}>...</button>
-        ) : null}
-        {page !== totalNumber ? (
-          <button
-            onClick={() => {
-              setPage(totalNumber);
-            }}
-          >
-            {totalNumber}
-          </button>
-        ) : null}
-        <button onClick={handleNext}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </button>
+            {page}
+          </Button>
+          {page + 1 !== totalNumber && page !== totalNumber ? (
+            <Button colorScheme="blue" variant="solid" onClick={handleNext}>
+              {page + 1}
+            </Button>
+          ) : null}
+          {page + 1 !== totalNumber && page !== totalNumber ? (
+            <Button colorScheme="blue" variant="solid" onClick={multiStepNext}>
+              ...
+            </Button>
+          ) : null}
+          {page !== totalNumber ? (
+            <Button
+              colorScheme="blue"
+              variant="solid"
+              onClick={() => {
+                setPage(totalNumber);
+              }}
+            >
+              {totalNumber}
+            </Button>
+          ) : null}
+          <Button colorScheme="blue" variant="solid" onClick={handleNext}>
+            <ChevronRightIcon boxSize={8} />
+          </Button>
+        </div>
       </div>
     );
   } else {

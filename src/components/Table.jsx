@@ -2,116 +2,124 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CryptoContext } from "../context/CryptoContext";
 import Pagination from "./Pagination";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableContainer,
+} from "@chakra-ui/react";
+import { Spinner } from "@chakra-ui/react";
 
-const Table = () => {
+const CoinListTable = () => {
   const { cryptoData, currency } = useContext(CryptoContext);
   return (
     <div>
       {cryptoData ? (
-        <table className="table-auto">
-          <thead>
-            <tr>
-              <th className="px-4 py-2">Name</th>
-              <th className="px-4 py-2">Symbol</th>
-              <th className="px-4 py-2">Price</th>
-              <th className="px-4 py-2">Total Volume</th>
-              <th className="px-4 py-2">Market Cap Change</th>
-              <th className="px-4 py-2">1H</th>
-              <th className="px-4 py-2">7D</th>
-              <th className="px-4 py-2">24H</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cryptoData.map((coin) => (
-              <tr key={coin.id}>
-                <td className="border gap-2 px-4 py-2">
-                  <Link to={`/${coin.id}`}>{coin.name}</Link>
-                </td>
-                <td className="border px-4 py-2 flex gap-2">
-                  <Link to={`/${coin.id}`}>
-                    <img className="w-6 h-6" src={coin.image} alt={coin.name} />
-                  </Link>
-                  <span className="uppercase">
-                    <Link to={`/${coin.id}`}>{coin.symbol}</Link>
-                  </span>
-                </td>
-                <td className="border px-4 py-2">
-                  {new Intl.NumberFormat("en-US", {
-                    style: "currency",
-                    currency: currency,
-                  }).format(coin.current_price)}
-                </td>
-                <td className="border px-4 py-2">
-                  {new Intl.NumberFormat("en-US", {
-                    style: "currency",
-                    currency: currency,
-                  }).format(coin.total_volume)}
-                </td>
-                <td
-                  className={
-                    coin.market_cap_change_percentage_24h > 0
-                      ? "border text-center px-4 py-2 text-green"
-                      : "border text-center px-4 py-2 text-red"
-                  }
-                >
-                  {Number(coin.market_cap_change_percentage_24h).toFixed(2)}
-                </td>
-                <td
-                  className={
-                    coin.price_change_percentage_1h_in_currency > 0
-                      ? "border text-center px-4 py-2 text-green"
-                      : "border text-center px-4 py-2 text-red"
-                  }
-                >
-                  {Number(coin.price_change_percentage_1h_in_currency).toFixed(
-                    2
-                  )}
-                </td>
-                <td
-                  className={
-                    coin.price_change_percentage_7d_in_currency > 0
-                      ? "border text-center px-4 py-2 text-green"
-                      : "border text-center px-4 py-2 text-red"
-                  }
-                >
-                  {Number(coin.price_change_percentage_7d_in_currency).toFixed(
-                    2
-                  )}
-                </td>
-                <td
-                  className={
-                    coin.price_change_percentage_24h_in_currency > 0
-                      ? "border text-center px-4 py-2 text-green"
-                      : "border text-center px-4 py-2 text-red"
-                  }
-                >
-                  {Number(coin.price_change_percentage_24h_in_currency).toFixed(
-                    2
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <TableContainer>
+          <Table variant="mytable" colorScheme="blue">
+            <Thead>
+              <Tr>
+                <Th>Name</Th>
+                <Th>Symbol</Th>
+                <Th>Price</Th>
+                <Th>Total Volume</Th>
+                <Th>Market Cap Change</Th>
+                <Th>1H</Th>
+                <Th>7D</Th>
+                <Th>24H</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {cryptoData.map((coin) => (
+                <Tr key={coin.id}>
+                  <Td className="border gap-2 px-4 py-2">
+                    <Link to={`/${coin.id}`}>{coin.name}</Link>
+                  </Td>
+                  <Td className="flex border gap-2">
+                    <Link to={`/${coin.id}`}>
+                      <img
+                        className="w-6 h-6 mr-6"
+                        src={coin.image}
+                        alt={coin.name}
+                      />
+                    </Link>
+                    <div className="uppercase">
+                      <Link to={`/${coin.id}`}>{coin.symbol}</Link>
+                    </div>
+                  </Td>
+                  <Td className="border px-4 py-2">
+                    {new Intl.NumberFormat("en-US", {
+                      style: "currency",
+                      currency: currency,
+                    }).format(coin.current_price)}
+                  </Td>
+                  <Td className="border text-center px-4 py-2">
+                    {new Intl.NumberFormat("en-US", {
+                      style: "currency",
+                      currency: currency,
+                    }).format(coin.total_volume)}
+                  </Td>
+                  <Td
+                    className={
+                      coin.market_cap_change_percentage_24h > 0
+                        ? "border !text-center px-4 py-2 text-green"
+                        : "border !text-center px-4 py-2 text-red"
+                    }
+                  >
+                    {Number(coin.market_cap_change_percentage_24h).toFixed(2)}
+                  </Td>
+                  <Td
+                    className={
+                      coin.price_change_percentage_1h_in_currency > 0
+                        ? "border text-center px-4 py-2 text-green"
+                        : "border text-center px-4 py-2 text-red"
+                    }
+                  >
+                    {Number(
+                      coin.price_change_percentage_1h_in_currency
+                    ).toFixed(2)}
+                  </Td>
+                  <Td
+                    className={
+                      coin.price_change_percentage_7d_in_currency > 0
+                        ? "border text-center px-4 py-2 text-green"
+                        : "border text-center px-4 py-2 text-red"
+                    }
+                  >
+                    {Number(
+                      coin.price_change_percentage_7d_in_currency
+                    ).toFixed(2)}
+                  </Td>
+                  <Td
+                    className={
+                      coin.price_change_percentage_24h_in_currency > 0
+                        ? "border text-center px-4 py-2 text-green"
+                        : "border text-center px-4 py-2 text-red"
+                    }
+                  >
+                    {Number(
+                      coin.price_change_percentage_24h_in_currency
+                    ).toFixed(2)}
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </TableContainer>
       ) : (
-        <p>Loading...</p>
+        <div className="p-20 flex gap-2 justify-center">
+          <Spinner />
+          <p className="font-bold">Loading...</p>
+        </div>
       )}
-      <div className="flex items-center justify-between mt-4 capitalize h-[2rem]">
-        <span>
-          Data provided by{" "}
-          <a
-            className="text-cyan"
-            href="http://www.coingecko.com"
-            rel="noreferrer"
-            target={"_blank"}
-          >
-            CoinGecko
-          </a>
-        </span>
+      <div className="flex items-center justify-between mt-4 capitalize">
         <Pagination />
       </div>
     </div>
   );
 };
 
-export default Table;
+export default CoinListTable;

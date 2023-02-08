@@ -17,7 +17,7 @@ const TrendingCoins = () => {
         trendingData.map((coin, index) => {
           return (
             <div
-              className="flex items-center p-4 gap-10 cursor-pointer hover:bg-gray-200"
+              className="flex items-center p-4 gap-10 cursor-pointer transition-all hover:bg-[#1b427a]"
               key={index}
               onClick={() => handleClick(coin.item.id)}
             >

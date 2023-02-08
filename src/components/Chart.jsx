@@ -10,12 +10,13 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { CryptoContext } from "./../context/CryptoContext";
+import { Button, color } from "@chakra-ui/react";
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-gray-800 p-2 rounded-md">
-        <p className="text-sm text-white">{`${label} : ${
+        <p className="text-sm">{`${label} : ${
           new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD",
@@ -35,17 +36,17 @@ const ChartComponent = ({ data, currency, type }) => {
         <Line
           type="monotone"
           dataKey={type}
-          stroke="#14ffec"
+          stroke="#90cdf4"
           strokeWidth={"1px"}
         />
-        <CartesianGrid stroke="#323232" />
+        <CartesianGrid stroke="#90cdf4" />
         <XAxis dataKey="date" hide />
         <YAxis dataKey={type} hide domain={["auto", "auto"]} />
         <Tooltip
           content={<CustomTooltip />}
           currency={currency}
           cursor={false}
-          wrapperStyle={{ outline: "none" }}
+          wrapperStyle={{ outline: "none", color: "white" }}
         />
         <Legend
           verticalAlign="top"
@@ -96,59 +97,71 @@ const Chart = ({ id }) => {
       <div>
         <div className="flex justify-between items-center mt-2">
           <div className="flex items-center">
-            <button
+            <Button
+              colorScheme="blue"
+              variant="solid"
               onClick={() => setType("prices")}
               className={`${
                 type === "prices" ? "bg-gray-800" : "bg-gray-700"
-              } text-white p-1 rounded-md mr-2`}
+              } p-1 rounded-md mr-2`}
             >
               Prices
-            </button>
-            <button
+            </Button>
+            <Button
+              colorScheme="blue"
+              variant="solid"
               onClick={() => setType("market_caps")}
               className={`${
                 type === "market_caps" ? "bg-gray-800" : "bg-gray-700"
-              } text-white p-1 rounded-md mr-2`}
+              } p-1 rounded-md mr-2`}
             >
               Market Cap
-            </button>
-            <button
+            </Button>
+            <Button
+              colorScheme="blue"
+              variant="solid"
               onClick={() => setType("total_volumes")}
               className={`${
                 type === "total_volumes" ? "bg-gray-800" : "bg-gray-700"
-              } text-white p-1 rounded-md mr-2`}
+              } p-1 rounded-md mr-2`}
             >
               Total Volume
-            </button>
+            </Button>
           </div>
         </div>
 
         <div className="flex justify-between items-center mt-2">
           <div className="flex items-center">
-            <button
+            <Button
+              colorScheme="blue"
+              variant="solid"
               onClick={() => setDays(7)}
               className={`${
                 days === 7 ? "bg-gray-800" : "bg-gray-700"
-              } text-white p-1 rounded-md mr-2`}
+              } p-1 rounded-md mr-2`}
             >
               7 Days
-            </button>
-            <button
+            </Button>
+            <Button
+              colorScheme="blue"
+              variant="solid"
               onClick={() => setDays(30)}
               className={`${
                 days === 30 ? "bg-gray-800" : "bg-gray-700"
-              } text-white p-1 rounded-md mr-2`}
+              } p-1 rounded-md mr-2`}
             >
               30 Days
-            </button>
-            <button
+            </Button>
+            <Button
+              colorScheme="blue"
+              variant="solid"
               onClick={() => setDays(90)}
               className={`${
                 days === 90 ? "bg-gray-800" : "bg-gray-700"
-              } text-white p-1 rounded-md mr-2`}
+              } p-1 rounded-md mr-2`}
             >
               90 Days
-            </button>
+            </Button>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { CryptoContext } from "../context/CryptoContext";
+import { Select } from "@chakra-ui/react";
 
 const Sort = () => {
   const { setSort } = useContext(CryptoContext);
@@ -13,7 +14,11 @@ const Sort = () => {
 
   return (
     <div>
-      <select name="sort" className="text-black" onChange={handleSortChange}>
+      <Select
+        placeholder="Sort"
+        name="sort"
+        onChange={handleSortChange}
+      >
         <option value="market_cap_desc">Market Cap Desc</option>
         <option value="market_cap_asc">Market Cap Asc</option>
         <option value="gecko_desc">Gecko Desc</option>
@@ -22,7 +27,7 @@ const Sort = () => {
         <option value="volume_asc">Volume Asc</option>
         <option value="id_desc">Id Desc</option>
         <option value="id_asc">Id Asc</option>
-      </select>
+      </Select>
     </div>
   );
 };

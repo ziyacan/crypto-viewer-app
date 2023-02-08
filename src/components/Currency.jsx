@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useContext } from "react";
 import { CryptoContext } from "../context/CryptoContext";
+import { Button, Input } from "@chakra-ui/react";
 
 const Currency = () => {
   const { setCurrency } = useContext(CryptoContext);
@@ -15,20 +16,20 @@ const Currency = () => {
 
   return (
     <div>
-      <form onSubmit={handleCurrencyChange}>
-        <input
-          type="text"
-          ref={currencyRef}
-          name="currency"
-          placeholder="Currency"
-          className="border rounded-4 px-4 py-2 text-black"
-        />
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded-4"
-        >
-          Change Currency
-        </button>
+      <form className="flex gap-4" onSubmit={handleCurrencyChange}>
+        <div>
+          <Input
+            type="text"
+            ref={currencyRef}
+            name="currency"
+            placeholder="USD, EUR, TRY, etc."
+          />
+        </div>
+        <div>
+          <Button type="submit" colorScheme="blue" variant="solid">
+            Change
+          </Button>
+        </div>
       </form>
     </div>
   );
