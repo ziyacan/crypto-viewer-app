@@ -45,7 +45,7 @@ const SearchInput = ({ handleSearch }) => {
             colorScheme="blue"
             variant="solid"
             type="submit"
-            paddingLeft={5}
+            paddingLeft={6}
           >
             Search
           </Button>

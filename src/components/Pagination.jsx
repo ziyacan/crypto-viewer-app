@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useContext } from "react";
 import { CryptoContext } from "../context/CryptoContext";
-import { Button, Select } from "@chakra-ui/react";
+import { Button, Select, Spinner } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 const PerPage = () => {
@@ -151,7 +151,12 @@ const Pagination = () => {
       </div>
     );
   } else {
-    return null;
+    return (
+      <div className="w-full p-20 flex gap-2 justify-center">
+        <Spinner />
+        <p className="font-bold">Loading...</p>
+      </div>
+    );
   }
 };
 

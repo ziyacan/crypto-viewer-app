@@ -55,7 +55,7 @@ const CryptoDetails = () => {
   return (
     <>
       {data && (
-        <div className="w-full md:px-12 gap-10 justify-center grid md:p-10 md:flex md:justify-between">
+        <div className="w-full gap-10 justify-center grid pt-10 md:flex md:justify-between">
           <div className="md:w-1/2 gap-10 grid">
             <div className="flex justify-between items-center">
               <div className="flex gap-2 items-center">
