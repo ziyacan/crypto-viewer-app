@@ -1,11 +1,9 @@
 import React, { useEffect, useLayoutEffect } from "react";
-import ReactDOM from "react-dom";
 import { useParams } from "react-router-dom";
 import { CryptoContext } from "../context/CryptoContext";
 import { useContext } from "react";
 import { useState } from "react";
 import Chart from "./Chart";
-import { Badge } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
 const HighLowIndicator = ({ currentPrice, high, low }) => {
