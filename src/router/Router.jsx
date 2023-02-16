@@ -1,10 +1,10 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Trending from "../pages/trending";
-import Saved from "../pages/saved";
-import Crypto from "../pages/crypto";
-import AppLayout from "../layouts/AppLayout";
-import CryptoDetails from "../components/CryptoDetails";
+import Trending from "@/pages/trending";
+import Saved from "@/pages/saved";
+import Crypto from "@/pages/crypto";
+import AppLayout from "@/layouts/AppLayout";
+import CryptoDetails from "@/components/CryptoDetails";
 
 
 const Router = () => {
