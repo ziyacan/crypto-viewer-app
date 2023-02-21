@@ -9,6 +9,7 @@ export default defineConfig({
       "@": resolve(__dirname, "src"),
     },
   },
+  base: './',
   plugins: [react()],
   server: {
     watch: {
