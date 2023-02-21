@@ -11,7 +11,7 @@ const PerPage = () => {
     <div className="flex gap-4">
       <Button
         colorScheme="blue"
-        variant="solid"
+        variant="outline"
         onClick={() => {
           setPerPage(10);
         }}
@@ -20,7 +20,7 @@ const PerPage = () => {
       </Button>
       <Button
         colorScheme="blue"
-        variant="solid"
+        variant="outline"
         onClick={() => {
           setPerPage(25);
         }}
@@ -29,7 +29,7 @@ const PerPage = () => {
       </Button>
       <Button
         colorScheme="blue"
-        variant="solid"
+        variant="outline"
         onClick={() => {
           setPerPage(50);
         }}
@@ -38,7 +38,7 @@ const PerPage = () => {
       </Button>
       <Button
         colorScheme="blue"
-        variant="solid"
+        variant="outline"
         onClick={() => {
           setPerPage(100);
         }}
@@ -102,41 +102,41 @@ const Pagination = () => {
       <div className="justify-center w-full grid md:flex gap-4 md:justify-between">
         <PerPage />
         <div className="gap-2 flex">
-          <Button colorScheme="blue" variant="solid" onClick={handlePrev}>
+          <Button colorScheme="blue" variant="outline" onClick={handlePrev}>
             <ChevronLeftIcon boxSize={8} />
           </Button>
           {page + 1 === totalNumber || page === totalNumber ? (
-            <Button colorScheme="blue" variant="solid" onClick={multiStepPrev}>
+            <Button colorScheme="blue" variant="outline" onClick={multiStepPrev}>
               ...
             </Button>
           ) : null}
           {page - 1 !== 0 ? (
-            <Button colorScheme="blue" variant="solid" onClick={handlePrev}>
+            <Button colorScheme="blue" variant="outline" onClick={handlePrev}>
               {page - 1}
             </Button>
           ) : null}
           <Button
             colorScheme="blue"
-            variant="solid"
+            variant="outline"
             disabled
             className="text-cyan"
           >
             {page}
           </Button>
           {page + 1 !== totalNumber && page !== totalNumber ? (
-            <Button colorScheme="blue" variant="solid" onClick={handleNext}>
+            <Button colorScheme="blue" variant="outline" onClick={handleNext}>
               {page + 1}
             </Button>
           ) : null}
           {page + 1 !== totalNumber && page !== totalNumber ? (
-            <Button colorScheme="blue" variant="solid" onClick={multiStepNext}>
+            <Button colorScheme="blue" variant="outline" onClick={multiStepNext}>
               ...
             </Button>
           ) : null}
           {page !== totalNumber ? (
             <Button
               colorScheme="blue"
-              variant="solid"
+              variant="outline"
               onClick={() => {
                 setPage(totalNumber);
               }}
@@ -144,7 +144,7 @@ const Pagination = () => {
               {totalNumber}
             </Button>
           ) : null}
-          <Button colorScheme="blue" variant="solid" onClick={handleNext}>
+          <Button colorScheme="blue" variant="outline" onClick={handleNext}>
             <ChevronRightIcon boxSize={8} />
           </Button>
         </div>

@@ -26,7 +26,7 @@ const Currency = () => {
           />
         </div>
         <div>
-          <Button type="submit" colorScheme="blue" variant="solid">
+          <Button type="submit" colorScheme="blue" variant="outline">
             Change
           </Button>
         </div>

@@ -99,7 +99,7 @@ const Chart = ({ id }) => {
           <div className="flex items-center">
             <Button
               colorScheme="blue"
-              variant="solid"
+              variant="outline"
               onClick={() => setType("prices")}
               className={`${
                 type === "prices" ? "bg-gray-800" : "bg-gray-700"
@@ -109,7 +109,7 @@ const Chart = ({ id }) => {
             </Button>
             <Button
               colorScheme="blue"
-              variant="solid"
+              variant="outline"
               onClick={() => setType("market_caps")}
               className={`${
                 type === "market_caps" ? "bg-gray-800" : "bg-gray-700"
@@ -119,7 +119,7 @@ const Chart = ({ id }) => {
             </Button>
             <Button
               colorScheme="blue"
-              variant="solid"
+              variant="outline"
               onClick={() => setType("total_volumes")}
               className={`${
                 type === "total_volumes" ? "bg-gray-800" : "bg-gray-700"
@@ -134,7 +134,7 @@ const Chart = ({ id }) => {
           <div className="flex items-center">
             <Button
               colorScheme="blue"
-              variant="solid"
+              variant="outline"
               onClick={() => setDays(7)}
               className={`${
                 days === 7 ? "bg-gray-800" : "bg-gray-700"
@@ -144,7 +144,7 @@ const Chart = ({ id }) => {
             </Button>
             <Button
               colorScheme="blue"
-              variant="solid"
+              variant="outline"
               onClick={() => setDays(30)}
               className={`${
                 days === 30 ? "bg-gray-800" : "bg-gray-700"
@@ -154,7 +154,7 @@ const Chart = ({ id }) => {
             </Button>
             <Button
               colorScheme="blue"
-              variant="solid"
+              variant="outline"
               onClick={() => setDays(90)}
               className={`${
                 days === 90 ? "bg-gray-800" : "bg-gray-700"

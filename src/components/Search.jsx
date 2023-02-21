@@ -35,6 +35,7 @@ const SearchInput = ({ handleSearch }) => {
           <Input
             onChange={handleChange}
             value={search}
+            variant="outline"
             className="border rounded-4 py-2 px-4"
             type="text"
             placeholder="Search"
@@ -43,7 +44,7 @@ const SearchInput = ({ handleSearch }) => {
         <div>
           <Button
             colorScheme="blue"
-            variant="solid"
+            variant="outline"
             type="submit"
             paddingLeft={6}
           >
