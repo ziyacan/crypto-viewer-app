@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import AppLayout from "@/layouts/AppLayout";
 import CryptoDetails from "@/components/CryptoDetails";
-import Crypto from "@/pages/crypto";
+import Crypto from "@/pages/Crypto";
 import TrendingCoins from "./../components/TrendingCoins";
 
 const Router = () => {
