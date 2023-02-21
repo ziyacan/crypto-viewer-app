@@ -7,8 +7,4 @@ export const navLinks = [
     name: "Trending",
     path: "/trending",
   },
-  {
-    name: "Saved",
-    path: "/saved",
-  },
 ];
