@@ -10,7 +10,7 @@ const Router = () => {
   return (
     <Routes>
       <Route element={<AppLayout />}>
-        <Route index element={<Crypto />} />
+        <Route path="/" element={<Crypto />} />
         <Route path="/:coinId" element={<CryptoDetails />} />
         <Route path="/trending" element={<Trending />} />
         <Route path="/saved" element={<Saved />} />
