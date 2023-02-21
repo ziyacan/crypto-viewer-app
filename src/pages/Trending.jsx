@@ -6,7 +6,6 @@ const Trending = () => {
   return (
     <div>
       <TrendingCoins />
-      <Outlet />
     </div>
   );
 };

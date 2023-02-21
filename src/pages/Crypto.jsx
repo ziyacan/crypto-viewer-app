@@ -8,7 +8,6 @@ const Crypto = () => {
     <div>
       <Filters />
       <Table />
-      <Outlet />
     </div>
   );
 };
