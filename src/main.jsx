@@ -5,6 +5,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const customTheme = extendTheme({
   components: {

@@ -119,7 +119,7 @@ const CryptoDetails = () => {
                   <h1 className="text-sm">Fully Diluted Valuation</h1>
                   <p className="text-lg font-bold">
                     {new Intl.NumberFormat("en-US", {
-                      // maximumSignificantDigits: 5,
+                      maximumSignificantDigits: 5,
                       notation: "compact",
                       style: "currency",
                       currency: currency,
@@ -138,7 +138,7 @@ const CryptoDetails = () => {
                   <h1 className="text-sm">Total Volume</h1>
                   <p className="text-lg font-bold">
                     {new Intl.NumberFormat("en-US", {
-                      // maximumSignificantDigits: 5,
+                      maximumSignificantDigits: 5,
                       minimumFractionDigits: 0,
                       style: "currency",
                       currency: currency,
